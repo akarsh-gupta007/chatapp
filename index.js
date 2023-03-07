@@ -1,11 +1,12 @@
 const express = require('express')
 const app = express()
+const dotenv=require("dotenv")
 const http = require('http').createServer(app)
+dotenv.config();
+const port = process.env.PORT || 3002
 
-const PORT = process.env.PORT || 3000
-
-http.listen(PORT, () => {
-    console.log(`Listening on port ${PORT}`)
+http.listen(port, () => {
+    console.log(`Listening on port ${port}`)
 })
 
 app.use(express.static(__dirname + '/public'))
@@ -24,3 +25,5 @@ io.on('connection', (socket) => {
     })
 
 })
+
+
