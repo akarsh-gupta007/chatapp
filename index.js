@@ -1,10 +1,14 @@
 const express = require('express')
 const app = express()
+const cors=require("cors")
+
 const dotenv=require("dotenv")
 const http = require('http').createServer(app)
 dotenv.config();
 // const port = process.env.PORT || 3002
-
+app.use(cors({
+    origin:"*"
+}))
 http.listen(3002, () => {
     console.log("Listening on port 3002")
 })
